@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID19 ANGULARJS</title>
+    <link rel = "icon" href =  
+  "C:\Users\saran\OneDrive\Desktop\covid\covid19JS\img\a.jpg" 
+          type = "image/x-icon" class="rounded-circle"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="js/script.js"></script>
+
+
+</head>
+<body ng-app = "MyAppc" ng-controller = "MyCtrlc">
+    <div> 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Covid-19</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link text-center" href="index.html">Home </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-center" href="country.html">Country</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+    </div>
+
+        <div class="jumbotron ">
+            <h1 class="text-center">{{namec}}</h1>
+
+            <input type="text" class="form-control mt-5" placeholder="Enter Country/code" ng-model = "c" ng-change="get_c_data()">
+            <div class="container-fluid" ng-if="c_data">
+            <h1 class="text-center mt-5 text-uppercase">{{c}} COVID-19 COUNTER</h1>
+            <div class="row text-center mt-5" >
+                <div class="col-md-4">
+                    <div class="card  bg-danger text-white">
+                        <div class="card-body">
+                            <h5 >Confirmed</h5>
+                            <h1 class="mt-2">{{c_data.confirmed.value}}</h1>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h5 >Recovered</h5>
+                            <h1 class="mt-2">{{c_data.recovered.value}}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <h5 >Deaths</h5>
+                            <h1 class="mt-2">{{c_data.deaths.value}}</h1>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        </div>
+</body>
+</html>
+
+
