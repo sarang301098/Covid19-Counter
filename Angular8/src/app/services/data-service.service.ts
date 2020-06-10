@@ -1,16 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {map, catchError} from 'rxjs/operators';
 import { GlobalDataSummary } from '../models/globle-data';
+import { error } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
 
-  private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/06-07-2020.csv'
-  constructor(private http : HttpClient) { }
+  private baseUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
+  private globalDataUrl = ''
+  private ext = '.csv';
+  month;
+  date;
+  year;
 
+  getDate(date:number){
+    if(date<10){
+      return '0'+date;
+    }
+    return date;
+  }
+  constructor(private http : HttpClient) 
+  {
+      let now = new Date();
+      this.month = now.getMonth() +1;
+      this.date = now.getDate();
+      this.year = now.getFullYear();
+
+      this.globalDataUrl = `${this.baseUrl}${this.getDate(this.month)}-${this.getDate(this.date)}-${this.year}${this.ext}`;
+   }
 
   getGlobalData(){
     return this.http.get(this.globalDataUrl , {responseType : 'text'}).pipe(
@@ -50,9 +70,14 @@ export class DataServiceService {
 
 
         return <GlobalDataSummary[]>Object.values(raw);
-      }
-
-      )
+      }),
+      catchError((error : HttpErrorResponse)=>{
+        if(error.status == 404){
+          this.date = this.date-1;
+          this.globalDataUrl = `${this.baseUrl}${this.getDate(this.month)}-${this.getDate(this.date)}-${this.year}${this.ext}`;
+          return this.getGlobalData()
+        }
+      })
     )
   }
 }
