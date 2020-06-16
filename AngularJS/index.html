@@ -8,7 +8,7 @@
   "C:\Users\saran\OneDrive\Desktop\covid\covid19JS\img\a.jpg" 
           type = "image/x-icon" class="rounded-circle"> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+  <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">-->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -41,39 +41,57 @@
 
     </div>
         <div class="jumbotron ">
-            <h1 class="text-center">{{name}}</h1>
+            <h1 class="text-center md-5">{{name}}</h1>
             
-            <div class="row mt-5">
-                <div class="col-md-4">
-                    <div class="card text-center bg-danger text-white">
-                        <div class="card-body">
-                            <h5 >Confirmed</h5>
-                            <h1 class="mt-2">{{all_data.confirmed.value}}</h1>
+            <h2><div class="row text-center">
+                <div class="card col p-3 m-3 bg-danger">
+                    <div class="ui statistic">
+                        <div class="label  text-white font-weight-bold">
+                          CONFIRMED
                         </div>
-                    </div>
-
-                </div>
-                <div class="col-md-4">
-                    <div class="card text-center bg-success text-white">
-                        <div class="card-body">
-                            <h5 >Recovered</h5>
-                            <h1 class="mt-2">{{all_data.recovered.value}}</h1>
+                        <div class="value  text-white mt-3 font-weight-bold">
+                          {{all_data.confirmed.value }}
                         </div>
-                    </div>
+                      </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card text-center bg-dark text-white">
-                        <div class="card-body">
-                            <h5 >Deaths</h5>
-                            <h1 class="mt-2">{{all_data.deaths.value}}</h1>
+            
+                <div class="card col p-3 m-3 bg-success ">
+                    <div class="ui statistic">
+                        <div class="label  text-white  font-weight-bold">
+                          RECOVERED
                         </div>
-                    </div>
+                        <div class="value  text-white mt-3  font-weight-bold">
+                          {{all_data.recovered.value}}
+                        </div>
+                      </div>
                 </div>
-            </div>
-
+            
+                <div class="card col p-3 m-3 bg-primary">
+                    <div class="ui statistic">
+                        <div class="label  text-white  font-weight-bold">
+                          DEATHS
+                        </div>
+                        <div class="value  text-white mt-3 font-weight-bold">
+                          {{all_data.deaths.value}}
+                        </div>
+                      </div>
+                </div>
+            
+                <div class="card col p-3 m-3 bg-dark">
+                    <div class="ui statistic ">
+                        <div class="label  text-white  font-weight-bold">
+                          ACTIVE
+                        </div>
+                        <div class="value  text-white mt-3  font-weight-bold">
+                          {{all_data.confirmed.value - all_data.recovered.value - all_data.deaths.value}}
+                        </div>
+                      </div>
+                </div>
+                </div></h2>
             
 
         </div>
+        
 </body>
 </html>
 
