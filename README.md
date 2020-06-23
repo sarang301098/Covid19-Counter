@@ -31,7 +31,13 @@ step 2.
 	To Check the version of node You Install Simply type command "node -v" on cmd.
 	
 step 3.
-	Now Simply Goes to the Folder Angular8 on cmd and Type "ng serve" To Compile the project.
+	Now You go to the Folder "Angular8" in cmd And Simply run command "npm install".
+	This command is install all the node packages inside the "Angular8" folder.
+Note: Make sure aftre install all the package the "ng_modules" Directory is there otherwise you get the error in compilation.
+
+
+step 4.
+	Now Simply Goes to the Folder "Angular8" on cmd and Type "ng serve" To Compile the project.
 	After sucessfully compilation of project simply goes  http://localhost:4200/ and check the Global Covid19 Counter and also Country wise Counter.
 	
 Note: Make Sure You Connected With Internet.
