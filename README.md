@@ -37,6 +37,12 @@ Note: Make sure aftre install all the package the "ng_modules" Directory is ther
 
 
 step 4.
+	Now If You Don't install angular in your Pc befroe You need to install it first.
+	for this simply write command in cmd "npm install -g @angular/cli" (it will take some time).
+	If You already install before then update the version by using command "ng update @angular/cli @angular/core"
+		for more about angular cli please go to :: https://www.npmjs.com/package/@angular/cli
+	
+step 5.
 	Now Simply Goes to the Folder "Angular8" on cmd and Type "ng serve" To Compile the project.
 	After sucessfully compilation of project simply goes  http://localhost:4200/ and check the Global Covid19 Counter and also Country wise Counter.
 	
